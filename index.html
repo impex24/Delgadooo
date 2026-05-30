@@ -6,167 +6,170 @@
 <title>Serena Delgado</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  background:#000;
-  color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.page{
-  max-width:430px;
-  margin:0 auto;
-  min-height:100vh;
-  background:#000;
-  overflow:hidden;
+
+html, body {
+  background: #000;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
-.hero{
-  position:relative;
-  height:610px;
-  background:url("hero.png.jpeg") center center/cover no-repeat;
+
+body {
+  min-height: 100vh;
 }
-.hero:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to bottom,rgba(0,0,0,0) 42%,rgba(0,0,0,.65) 78%,#000 100%);
+
+.page {
+  max-width: 430px;
+  margin: 0 auto;
+  background: #000;
+  min-height: 100vh;
+  overflow: hidden;
 }
-.profile{
-  position:absolute;
-  z-index:2;
-  left:0;
-  right:0;
-  bottom:34px;
-  text-align:center;
-  padding:0 12px;
+
+.hero {
+  width: 100%;
+  background: #000;
 }
-.name{
-  font-size:46px;
-  font-weight:900;
-  line-height:1;
-  letter-spacing:-1.4px;
-  text-shadow:0 5px 18px rgba(0,0,0,.75);
+
+.hero img {
+  width: 100%;
+  display: block;
 }
-.verified{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:27px;
-  height:27px;
-  margin-left:5px;
-  border-radius:50%;
-  background:#1da1f2;
-  color:#fff;
-  font-size:17px;
-  vertical-align:middle;
+
+.content {
+  padding: 18px 16px 38px;
+  background: #000;
 }
-.online{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  margin-top:14px;
-  background:#fff;
-  color:#111;
-  padding:7px 19px;
-  border-radius:999px;
-  font-size:18px;
-  font-weight:800;
+
+.preview-card {
+  position: relative;
+  width: 100%;
+  height: 235px;
+  border-radius: 34px;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.45);
+  background: #111;
+  cursor: pointer;
+  user-select: none;
 }
-.dot{
-  width:16px;
-  height:16px;
-  border-radius:50%;
-  background:#20d466;
+
+.preview-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: blur(14px) brightness(0.48);
+  transform: scale(1.12);
+  transition: all 0.35s ease;
 }
-.content{
-  padding:0 16px 38px;
-  margin-top:-2px;
+
+.preview-card.active img {
+  filter: brightness(0.58);
+  transform: scale(1);
 }
-.unlock-card{
-  position:relative;
-  height:230px;
-  border-radius:34px;
-  overflow:hidden;
-  border:2px solid rgba(255,255,255,.45);
-  background:#111;
-  cursor:pointer;
-  user-select:none;
+
+.preview-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.08),
+    rgba(0,0,0,0.48)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
 }
-.unlock-card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  filter:blur(10px) brightness(.45);
-  transform:scale(1.1);
-  transition:.35s ease;
+
+.preview-box {
+  background: rgba(0,0,0,0.72);
+  padding: 18px 28px;
+  border-radius: 22px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
-.unlock-card.active img{
-  filter:brightness(.55);
-  transform:scale(1);
+
+.preview-box h2 {
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 10px;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.65);
 }
-.card-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to bottom,rgba(0,0,0,.05),rgba(0,0,0,.55));
+
+.preview-box p {
+  font-size: 23px;
+  font-weight: 500;
+  opacity: 0.95;
 }
-.card-text{
-  position:absolute;
-  inset:0;
-  z-index:2;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
+
+.join-btn {
+  width: 100%;
+  height: 76px;
+  margin-top: 26px;
+  border-radius: 999px;
+  background: #35f45a;
+  color: #061006;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 17px 0 30px;
+  font-size: 25px;
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: 0 0 35px rgba(53,244,90,0.35);
+  cursor: pointer;
+  user-select: none;
 }
-.lock-box{
-  background:rgba(0,0,0,.82);
-  padding:15px 24px;
-  border-radius:15px;
-  font-size:22px;
-  font-weight:900;
-  box-shadow:0 8px 25px rgba(0,0,0,.45);
+
+.arrow {
+  width: 49px;
+  height: 49px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.28);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 900;
 }
-.hint{
-  margin-top:14px;
-  font-size:18px;
-  opacity:.9;
+
+.footer {
+  text-align: center;
+  color: rgba(255,255,255,0.38);
+  font-size: 15px;
+  padding: 32px 0 10px;
 }
-.cta{
-  margin-top:18px;
-  height:74px;
-  border-radius:999px;
-  background:#35f45a;
-  color:#061006;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 16px 0 28px;
-  font-size:22px;
-  font-weight:900;
-  box-shadow:0 10px 28px rgba(53,244,90,.18);
-}
-.arrow{
-  width:46px;
-  height:46px;
-  border-radius:50%;
-  background:rgba(0,0,0,.28);
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-}
-.footer{
-  text-align:center;
-  color:#777;
-  font-size:12px;
-  padding:28px 0 0;
-}
-@media(max-width:390px){
-  .hero{height:570px}
-  .name{font-size:39px}
-  .unlock-card{height:210px}
+
+@media (max-width: 390px) {
+  .content {
+    padding: 16px 14px 34px;
+  }
+
+  .preview-card {
+    height: 215px;
+    border-radius: 30px;
+  }
+
+  .preview-box h2 {
+    font-size: 30px;
+  }
+
+  .preview-box p {
+    font-size: 21px;
+  }
+
+  .join-btn {
+    height: 70px;
+    font-size: 22px;
+  }
 }
 </style>
 </head>
@@ -176,34 +179,29 @@ body{
 <main class="page">
 
   <section class="hero">
-    <div class="profile">
-      <div class="name">
-        Serena Delgado <span class="verified">✓</span>
-      </div>
-      <div class="online">
-        <span class="dot"></span> Online
-      </div>
-    </div>
+    <img src="hero.png.jpeg" alt="Serena Delgado">
   </section>
 
   <section class="content">
 
-    <div class="unlock-card" id="unlockCard">
-      <img src="hero.png.jpeg" alt="Serena Delgado">
-      <div class="card-overlay"></div>
-
-      <div class="card-text">
-        <div class="lock-box" id="lockText">🔒 Sensitive Content</div>
-        <div class="hint" id="hintText">Tap to preview</div>
+    <div class="preview-card" id="previewCard">
+      <img src="hero.png.jpeg" alt="Preview">
+      <div class="preview-overlay">
+        <div class="preview-box">
+          <h2 id="previewTitle">All you need</h2>
+          <p id="previewSub">You know ;)</p>
+        </div>
       </div>
     </div>
 
-    <div class="cta" id="ctaButton">
-      <span id="ctaText">Preview freischalten</span>
+    <div class="join-btn" id="joinButton">
+      <span id="buttonText">Jetzt beitreten</span>
       <span class="arrow">→</span>
     </div>
 
-    <div class="footer">© Serena Delgado</div>
+    <div class="footer">
+      © Serena Delgado
+    </div>
 
   </section>
 
@@ -213,20 +211,21 @@ body{
 const fanvueLink = "https://fanvue.com/serenadelgadooo";
 let unlocked = false;
 
-function handleClick() {
+function goNext() {
   if (!unlocked) {
     unlocked = true;
-    document.getElementById("unlockCard").classList.add("active");
-    document.getElementById("lockText").innerHTML = "All you need";
-    document.getElementById("hintText").innerHTML = "You know ;)";
-    document.getElementById("ctaText").innerHTML = "Jetzt beitreten";
+
+    document.getElementById("previewCard").classList.add("active");
+    document.getElementById("previewTitle").innerText = "Tap again";
+    document.getElementById("previewSub").innerText = "Unlock full gallery";
+    document.getElementById("buttonText").innerText = "Continue to VIP";
   } else {
     window.location.href = fanvueLink;
   }
 }
 
-document.getElementById("unlockCard").addEventListener("click", handleClick);
-document.getElementById("ctaButton").addEventListener("click", handleClick);
+document.getElementById("previewCard").addEventListener("click", goNext);
+document.getElementById("joinButton").addEventListener("click", goNext);
 </script>
 
 </body>
