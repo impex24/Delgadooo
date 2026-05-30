@@ -7,111 +7,130 @@
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 html,body{
-    background:#000;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    color:#fff;
+  background:#000;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  color:#fff;
 }
 
 body{
-    display:flex;
-    justify-content:center;
+  display:flex;
+  justify-content:center;
+  min-height:100vh;
 }
 
 .wrapper{
-    width:100%;
-    max-width:430px;
-    background:#000;
+  width:100%;
+  max-width:430px;
+  background:#000;
+  min-height:100vh;
+  overflow:hidden;
 }
 
 .hero{
-    width:100%;
+  width:100%;
 }
 
 .hero img{
-    width:100%;
-    display:block;
+  width:100%;
+  display:block;
 }
 
 .content{
-    padding:14px;
-    margin-top:-10px;
+  padding:14px;
+  margin-top:18px;
 }
 
 .card{
-    position:relative;
-    width:100%;
-    height:250px;
-    overflow:hidden;
-    border-radius:34px;
-    cursor:pointer;
-    border:2px solid rgba(255,255,255,.25);
+  position:relative;
+  width:100%;
+  height:250px;
+  overflow:hidden;
+  border-radius:34px;
+  cursor:pointer;
+  border:2px solid rgba(255,255,255,.25);
+  animation:pulse 1.7s infinite;
 }
 
 .card img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    filter:blur(20px) brightness(.45);
-    transform:scale(1.18);
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:blur(14px) brightness(.58);
+  transform:scale(1.12);
 }
 
 .overlay{
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .textbox{
-    text-align:center;
+  text-align:center;
 }
 
 .textbox h2{
-    font-size:56px;
-    line-height:1;
-    font-weight:900;
-    color:#fff;
-    text-shadow:0 4px 20px rgba(0,0,0,.7);
+  font-size:56px;
+  line-height:1;
+  font-weight:900;
+  color:#fff;
+  text-shadow:0 4px 20px rgba(0,0,0,.75);
 }
 
 .textbox p{
-    margin-top:10px;
-    font-size:24px;
-    color:#fff;
-    text-shadow:0 4px 20px rgba(0,0,0,.7);
+  margin-top:10px;
+  font-size:24px;
+  color:#fff;
+  text-shadow:0 4px 20px rgba(0,0,0,.75);
 }
 
 .footer{
-    text-align:center;
-    padding:24px 0 30px;
-    color:rgba(255,255,255,.4);
-    font-size:13px;
+  text-align:center;
+  padding:28px 0 30px;
+  color:rgba(255,255,255,.4);
+  font-size:13px;
+}
+
+@keyframes pulse{
+  0%{
+    transform:scale(1);
+    box-shadow:0 0 0 rgba(255,255,255,0);
+  }
+  50%{
+    transform:scale(1.025);
+    box-shadow:0 0 28px rgba(255,255,255,.18);
+  }
+  100%{
+    transform:scale(1);
+    box-shadow:0 0 0 rgba(255,255,255,0);
+  }
 }
 
 @media(max-width:430px){
+  .content{
+    padding:12px;
+    margin-top:18px;
+  }
 
-    .content{
-        padding:12px;
-    }
+  .card{
+    height:220px;
+  }
 
-    .card{
-        height:220px;
-    }
+  .textbox h2{
+    font-size:48px;
+  }
 
-    .textbox h2{
-        font-size:48px;
-    }
-
-    .textbox p{
-        font-size:22px;
-    }
+  .textbox p{
+    font-size:22px;
+  }
 }
 </style>
 </head>
@@ -120,38 +139,34 @@ body{
 
 <div class="wrapper">
 
-    <!-- HERO -->
-    <div class="hero">
-        <img src="hero.png" alt="">
+  <div class="hero">
+    <img src="hero.png" alt="Serena Delgado">
+  </div>
+
+  <div class="content">
+
+    <div class="card" onclick="openFanvue()">
+      <img src="button.png" alt="Serena Delgado Preview">
+
+      <div class="overlay">
+        <div class="textbox">
+          <h2>All you need</h2>
+          <p>You know ;)</p>
+        </div>
+      </div>
     </div>
 
-    <!-- BLUR CARD -->
-    <div class="content">
-
-        <div class="card" onclick="openFanvue()">
-
-            <img src="button.png" alt="">
-
-            <div class="overlay">
-                <div class="textbox">
-                    <h2>All you need</h2>
-                    <p>You know ;)</p>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="footer">
-            © Serena Delgado
-        </div>
-
+    <div class="footer">
+      © Serena Delgado
     </div>
+
+  </div>
 
 </div>
 
 <script>
 function openFanvue(){
-    window.location.href = "https://fanvue.com/serenadelgadooo";
+  window.location.href = "https://fanvue.com/serenadelgadooo";
 }
 </script>
 
