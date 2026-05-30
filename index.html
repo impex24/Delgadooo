@@ -6,166 +6,112 @@
 <title>Serena Delgado</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html, body {
-  background: #000;
-  color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+html,body{
+    background:#000;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    color:#fff;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
+body{
+    display:flex;
+    justify-content:center;
 }
 
-.wrapper {
-  width: 100%;
-  max-width: 430px;
-  background: #000;
-  min-height: 100vh;
-  overflow: hidden;
+.wrapper{
+    width:100%;
+    max-width:430px;
+    background:#000;
 }
 
-.hero img {
-  width: 100%;
-  display: block;
+.hero{
+    width:100%;
 }
 
-.content {
-  padding: 0 16px 35px;
-  margin-top: -18px;
-  position: relative;
-  z-index: 2;
+.hero img{
+    width:100%;
+    display:block;
 }
 
-.card {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  border-radius: 34px;
-  overflow: hidden;
-  border: 2px solid rgba(255,255,255,0.45);
-  background: #111;
-  cursor: pointer;
+.content{
+    padding:14px;
+    margin-top:-10px;
 }
 
-.card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: blur(16px) brightness(0.45);
-  transform: scale(1.12);
-  transition: 0.35s ease;
+.card{
+    position:relative;
+    width:100%;
+    height:250px;
+    overflow:hidden;
+    border-radius:34px;
+    cursor:pointer;
+    border:2px solid rgba(255,255,255,.25);
 }
 
-.card.unlocked img {
-  filter: brightness(0.65);
-  transform: scale(1.03);
+.card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:blur(20px) brightness(.45);
+    transform:scale(1.18);
 }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0,0,0,0.18);
+.overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.textbox {
-  background: rgba(0,0,0,0.78);
-  padding: 18px 30px;
-  border-radius: 24px;
-  text-align: center;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+.textbox{
+    text-align:center;
 }
 
-.textbox h2 {
-  font-size: 34px;
-  line-height: 1;
-  font-weight: 900;
+.textbox h2{
+    font-size:56px;
+    line-height:1;
+    font-weight:900;
+    color:#fff;
+    text-shadow:0 4px 20px rgba(0,0,0,.7);
 }
 
-.textbox p {
-  font-size: 22px;
-  margin-top: 9px;
+.textbox p{
+    margin-top:10px;
+    font-size:24px;
+    color:#fff;
+    text-shadow:0 4px 20px rgba(0,0,0,.7);
 }
 
-.join {
-  width: 100%;
-  height: 58px;
-  margin-top: 22px;
-  border-radius: 999px;
-  background: #35f45a;
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 10px 0 26px;
-  font-size: 21px;
-  font-weight: 900;
-  cursor: pointer;
-  box-shadow: 0 0 28px rgba(53,244,90,0.35);
+.footer{
+    text-align:center;
+    padding:24px 0 30px;
+    color:rgba(255,255,255,.4);
+    font-size:13px;
 }
 
-.arrow {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.28);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  font-weight: 900;
-}
+@media(max-width:430px){
 
-.footer {
-  text-align: center;
-  color: rgba(255,255,255,0.35);
-  font-size: 13px;
-  padding: 24px 0 0;
-}
+    .content{
+        padding:12px;
+    }
 
-@media (max-width: 390px) {
-  .content {
-    padding: 0 14px 32px;
-    margin-top: -14px;
-  }
+    .card{
+        height:220px;
+    }
 
-  .card {
-    height: 205px;
-    border-radius: 30px;
-  }
+    .textbox h2{
+        font-size:48px;
+    }
 
-  .textbox h2 {
-    font-size: 30px;
-  }
-
-  .textbox p {
-    font-size: 20px;
-  }
-
-  .join {
-    height: 54px;
-    font-size: 19px;
-    padding-left: 23px;
-  }
-
-  .arrow {
-    width: 39px;
-    height: 39px;
-    font-size: 24px;
-  }
+    .textbox p{
+        font-size:22px;
+    }
 }
 </style>
 </head>
@@ -174,53 +120,39 @@ body {
 
 <div class="wrapper">
 
-  <div class="hero">
-    <img src="hero.png" alt="Serena Delgado">
-  </div>
+    <!-- HERO -->
+    <div class="hero">
+        <img src="hero.png" alt="">
+    </div>
 
-  <div class="content">
+    <!-- BLUR CARD -->
+    <div class="content">
 
-    <div class="card" id="card">
-      <img src="button.png" alt="Preview">
+        <div class="card" onclick="openFanvue()">
 
-      <div class="overlay">
-        <div class="textbox">
-          <h2 id="title">All you need</h2>
-          <p id="subtitle">You know ;)</p>
+            <img src="button.png" alt="">
+
+            <div class="overlay">
+                <div class="textbox">
+                    <h2>All you need</h2>
+                    <p>You know ;)</p>
+                </div>
+            </div>
+
         </div>
-      </div>
+
+        <div class="footer">
+            © Serena Delgado
+        </div>
+
     </div>
-
-    <div class="join" id="join">
-      <span id="buttonText">Jetzt beitreten</span>
-      <span class="arrow">→</span>
-    </div>
-
-    <div class="footer">© Serena Delgado</div>
-
-  </div>
 
 </div>
 
 <script>
-const FANVUE_URL = "https://fanvue.com/serenadelgadooo";
-let unlocked = false;
-
-function openContent() {
-  if (!unlocked) {
-    unlocked = true;
-
-    document.getElementById("card").classList.add("unlocked");
-    document.getElementById("title").innerText = "Tap again";
-    document.getElementById("subtitle").innerText = "Unlock content";
-    document.getElementById("buttonText").innerText = "Continue";
-  } else {
-    window.location.href = FANVUE_URL;
-  }
+function openFanvue(){
+    window.location.href = "https://fanvue.com/serenadelgadooo";
 }
-
-document.getElementById("card").onclick = openContent;
-document.getElementById("join").onclick = openContent;
 </script>
 
 </body>
