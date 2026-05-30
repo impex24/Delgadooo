@@ -3,124 +3,169 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Serena Delgado</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-background:#000;
-font-family:-apple-system,BlinkMacSystemFont,sans-serif;
-display:flex;
-justify-content:center;
-min-height:100vh;
-overflow-x:hidden;
+html, body {
+  background: #000;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
 
-.wrapper{
-width:100%;
-max-width:500px;
-background:#000;
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
 }
 
-.hero{
-width:100%;
-display:block;
+.wrapper {
+  width: 100%;
+  max-width: 430px;
+  background: #000;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
-.hero img{
-width:100%;
-display:block;
+.hero img {
+  width: 100%;
+  display: block;
 }
 
-.card{
-position:relative;
-width:88%;
-margin:-20px auto 25px;
-border-radius:35px;
-overflow:hidden;
-border:2px solid rgba(255,255,255,.35);
-cursor:pointer;
+.content {
+  padding: 0 16px 35px;
+  margin-top: -18px;
+  position: relative;
+  z-index: 2;
 }
 
-.card img{
-width:100%;
-display:block;
-filter:blur(18px) brightness(.45);
-transform:scale(1.08);
-transition:.4s;
+.card {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  border-radius: 34px;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.45);
+  background: #111;
+  cursor: pointer;
 }
 
-.card.unlocked img{
-filter:brightness(.65);
-transform:scale(1);
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: blur(16px) brightness(0.45);
+  transform: scale(1.12);
+  transition: 0.35s ease;
 }
 
-.overlay{
-position:absolute;
-inset:0;
-display:flex;
-align-items:center;
-justify-content:center;
+.card.unlocked img {
+  filter: brightness(0.65);
+  transform: scale(1.03);
 }
 
-.textbox{
-background:rgba(0,0,0,.78);
-padding:22px 34px;
-border-radius:24px;
-text-align:center;
-backdrop-filter:blur(8px);
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.18);
 }
 
-.textbox h2{
-font-size:42px;
-font-weight:900;
-color:white;
+.textbox {
+  background: rgba(0,0,0,0.78);
+  padding: 18px 30px;
+  border-radius: 24px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.textbox p{
-font-size:24px;
-color:white;
-margin-top:10px;
+.textbox h2 {
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 900;
 }
 
-.join{
-width:88%;
-margin:0 auto;
-cursor:pointer;
+.textbox p {
+  font-size: 22px;
+  margin-top: 9px;
 }
 
-.join img{
-width:100%;
-display:block;
+.join {
+  width: 100%;
+  height: 58px;
+  margin-top: 22px;
+  border-radius: 999px;
+  background: #35f45a;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px 0 26px;
+  font-size: 21px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 0 28px rgba(53,244,90,0.35);
 }
 
-.footer{
-text-align:center;
-color:rgba(255,255,255,.35);
-font-size:14px;
-padding:20px 0 40px;
+.arrow {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.28);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 900;
 }
 
-@media(max-width:480px){
-
-.textbox h2{
-font-size:32px;
+.footer {
+  text-align: center;
+  color: rgba(255,255,255,0.35);
+  font-size: 13px;
+  padding: 24px 0 0;
 }
 
-.textbox p{
-font-size:20px;
-}
+@media (max-width: 390px) {
+  .content {
+    padding: 0 14px 32px;
+    margin-top: -14px;
+  }
 
-.card{
-margin-top:-10px;
-}
+  .card {
+    height: 205px;
+    border-radius: 30px;
+  }
 
+  .textbox h2 {
+    font-size: 30px;
+  }
+
+  .textbox p {
+    font-size: 20px;
+  }
+
+  .join {
+    height: 54px;
+    font-size: 19px;
+    padding-left: 23px;
+  }
+
+  .arrow {
+    width: 39px;
+    height: 39px;
+    font-size: 24px;
+  }
 }
 </style>
 </head>
@@ -129,59 +174,53 @@ margin-top:-10px;
 
 <div class="wrapper">
 
-<div class="hero">
-<img src="hero.png" alt="">
-</div>
+  <div class="hero">
+    <img src="hero.png" alt="Serena Delgado">
+  </div>
 
-<div class="card" id="card">
+  <div class="content">
 
-<img src="button.png" alt="">
+    <div class="card" id="card">
+      <img src="button.png" alt="Preview">
 
-<div class="overlay">
-<div class="textbox">
-<h2 id="title">All you need</h2>
-<p id="subtitle">You know ;)</p>
-</div>
-</div>
+      <div class="overlay">
+        <div class="textbox">
+          <h2 id="title">All you need</h2>
+          <p id="subtitle">You know ;)</p>
+        </div>
+      </div>
+    </div>
 
-</div>
+    <div class="join" id="join">
+      <span id="buttonText">Jetzt beitreten</span>
+      <span class="arrow">→</span>
+    </div>
 
-<div class="join" id="join">
-<img src="button.png" alt="">
-</div>
+    <div class="footer">© Serena Delgado</div>
 
-<div class="footer">
-© Serena Delgado
-</div>
+  </div>
 
 </div>
 
 <script>
-
-const FANVUE_URL = "https://fanvue.com/DEINNAME";
-
+const FANVUE_URL = "https://fanvue.com/serenadelgadooo";
 let unlocked = false;
 
-function openContent(){
+function openContent() {
+  if (!unlocked) {
+    unlocked = true;
 
-if(!unlocked){
-
-unlocked = true;
-
-document.getElementById("card").classList.add("unlocked");
-
-document.getElementById("title").innerText = "Tap again";
-document.getElementById("subtitle").innerText = "Unlock content";
-
-return;
-}
-
-window.location.href = FANVUE_URL;
+    document.getElementById("card").classList.add("unlocked");
+    document.getElementById("title").innerText = "Tap again";
+    document.getElementById("subtitle").innerText = "Unlock content";
+    document.getElementById("buttonText").innerText = "Continue";
+  } else {
+    window.location.href = FANVUE_URL;
+  }
 }
 
 document.getElementById("card").onclick = openContent;
 document.getElementById("join").onclick = openContent;
-
 </script>
 
 </body>
