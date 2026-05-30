@@ -1,229 +1,187 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Serena Delgado</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-html,body{
-  background:#000;
-  color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-.page{
-  width:100%;
-  max-width:430px;
-  margin:0 auto;
-  background:#000;
-  min-height:100vh;
-  overflow:hidden;
+body{
+background:#000;
+font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+display:flex;
+justify-content:center;
+min-height:100vh;
+overflow-x:hidden;
+}
+
+.wrapper{
+width:100%;
+max-width:500px;
+background:#000;
 }
 
 .hero{
-  height:78vh;
-  min-height:610px;
-  max-height:760px;
-  background-image:url("hero.png.jpeg");
-  background-size:cover;
-  background-position:center center;
-  background-repeat:no-repeat;
-  position:relative;
+width:100%;
+display:block;
 }
 
-.hero::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height:180px;
-  background:linear-gradient(to bottom,rgba(0,0,0,0),#000);
+.hero img{
+width:100%;
+display:block;
 }
 
-.content{
-  position:relative;
-  z-index:2;
-  margin-top:-38px;
-  padding:0 16px 40px;
-  background:#000;
+.card{
+position:relative;
+width:88%;
+margin:-20px auto 25px;
+border-radius:35px;
+overflow:hidden;
+border:2px solid rgba(255,255,255,.35);
+cursor:pointer;
 }
 
-.preview-card{
-  position:relative;
-  width:100%;
-  height:235px;
-  border-radius:34px;
-  overflow:hidden;
-  border:2px solid rgba(255,255,255,.55);
-  background:#111;
-  cursor:pointer;
-  box-shadow:0 0 26px rgba(255,255,255,.08);
+.card img{
+width:100%;
+display:block;
+filter:blur(18px) brightness(.45);
+transform:scale(1.08);
+transition:.4s;
 }
 
-.preview-card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  filter:blur(16px) brightness(.45);
-  transform:scale(1.14);
-  transition:.35s ease;
+.card.unlocked img{
+filter:brightness(.65);
+transform:scale(1);
 }
 
-.preview-card.active img{
-  filter:brightness(.55);
-  transform:scale(1.03);
+.overlay{
+position:absolute;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
-.preview-overlay{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background:rgba(0,0,0,.18);
+.textbox{
+background:rgba(0,0,0,.78);
+padding:22px 34px;
+border-radius:24px;
+text-align:center;
+backdrop-filter:blur(8px);
 }
 
-.preview-box{
-  background:rgba(0,0,0,.76);
-  padding:20px 34px;
-  border-radius:24px;
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
+.textbox h2{
+font-size:42px;
+font-weight:900;
+color:white;
 }
 
-.preview-box h2{
-  font-size:38px;
-  font-weight:900;
-  line-height:1;
-  margin-bottom:12px;
+.textbox p{
+font-size:24px;
+color:white;
+margin-top:10px;
 }
 
-.preview-box p{
-  font-size:25px;
-  font-weight:500;
+.join{
+width:88%;
+margin:0 auto;
+cursor:pointer;
 }
 
-.join-btn{
-  width:100%;
-  height:82px;
-  margin-top:26px;
-  border-radius:999px;
-  background:#35f45a;
-  color:#061006;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 16px 0 32px;
-  font-size:28px;
-  font-weight:900;
-  cursor:pointer;
-  box-shadow:0 0 36px rgba(53,244,90,.38);
-}
-
-.arrow{
-  width:54px;
-  height:54px;
-  border-radius:50%;
-  background:rgba(0,0,0,.28);
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:34px;
-  font-weight:900;
+.join img{
+width:100%;
+display:block;
 }
 
 .footer{
-  text-align:center;
-  color:rgba(255,255,255,.35);
-  font-size:15px;
-  padding:32px 0 0;
+text-align:center;
+color:rgba(255,255,255,.35);
+font-size:14px;
+padding:20px 0 40px;
 }
 
-@media(max-width:390px){
-  .hero{
-    height:76vh;
-    min-height:560px;
-  }
+@media(max-width:480px){
 
-  .content{
-    margin-top:-30px;
-    padding:0 14px 36px;
-  }
+.textbox h2{
+font-size:32px;
+}
 
-  .preview-card{
-    height:215px;
-  }
+.textbox p{
+font-size:20px;
+}
 
-  .preview-box h2{
-    font-size:32px;
-  }
+.card{
+margin-top:-10px;
+}
 
-  .preview-box p{
-    font-size:22px;
-  }
-
-  .join-btn{
-    height:74px;
-    font-size:24px;
-  }
 }
 </style>
 </head>
 
 <body>
 
-<main class="page">
+<div class="wrapper">
 
-  <section class="hero"></section>
+<div class="hero">
+<img src="hero.png" alt="">
+</div>
 
-  <section class="content">
+<div class="card" id="card">
 
-    <div class="preview-card" id="previewCard">
-      <img src="hero.png.jpeg" alt="Serena Delgado">
-      <div class="preview-overlay">
-        <div class="preview-box">
-          <h2 id="previewTitle">All you need</h2>
-          <p id="previewSub">You know ;)</p>
-        </div>
-      </div>
-    </div>
+<img src="button.png" alt="">
 
-    <div class="join-btn" id="joinButton">
-      <span id="buttonText">Jetzt beitreten</span>
-      <span class="arrow">→</span>
-    </div>
+<div class="overlay">
+<div class="textbox">
+<h2 id="title">All you need</h2>
+<p id="subtitle">You know ;)</p>
+</div>
+</div>
 
-    <div class="footer">© Serena Delgado</div>
+</div>
 
-  </section>
+<div class="join" id="join">
+<img src="button.png" alt="">
+</div>
 
-</main>
+<div class="footer">
+© Serena Delgado
+</div>
+
+</div>
 
 <script>
-const fanvueLink = "https://fanvue.com/serenadelgadooo";
+
+const FANVUE_URL = "https://fanvue.com/DEINNAME";
+
 let unlocked = false;
 
-function handleClick(){
-  if(!unlocked){
-    unlocked = true;
-    document.getElementById("previewCard").classList.add("active");
-    document.getElementById("previewTitle").innerText = "Tap again";
-    document.getElementById("previewSub").innerText = "Unlock full gallery";
-    document.getElementById("buttonText").innerText = "Continue";
-  }else{
-    window.location.href = fanvueLink;
-  }
+function openContent(){
+
+if(!unlocked){
+
+unlocked = true;
+
+document.getElementById("card").classList.add("unlocked");
+
+document.getElementById("title").innerText = "Tap again";
+document.getElementById("subtitle").innerText = "Unlock content";
+
+return;
 }
 
-document.getElementById("previewCard").addEventListener("click", handleClick);
-document.getElementById("joinButton").addEventListener("click", handleClick);
+window.location.href = FANVUE_URL;
+}
+
+document.getElementById("card").onclick = openContent;
+document.getElementById("join").onclick = openContent;
+
 </script>
 
 </body>
