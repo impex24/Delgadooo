@@ -6,239 +6,167 @@
 <title>Serena Delgado</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#000;
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
 }
-
-body {
-  background: #000;
-  color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+.page{
+  max-width:430px;
+  margin:0 auto;
+  min-height:100vh;
+  background:#000;
+  overflow:hidden;
 }
-
-.page {
-  max-width: 430px;
-  margin: 0 auto;
-  min-height: 100vh;
-  background: #000;
-  overflow: hidden;
+.hero{
+  position:relative;
+  height:610px;
+  background:url("hero.png.jpeg") center center/cover no-repeat;
 }
-
-.hero {
-  position: relative;
-  height: 590px;
-  background: url("hero.png") center center / cover no-repeat;
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,0) 42%,rgba(0,0,0,.65) 78%,#000 100%);
 }
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.05) 35%,
-    rgba(0,0,0,0.35) 68%,
-    rgba(0,0,0,1) 100%
-  );
+.profile{
+  position:absolute;
+  z-index:2;
+  left:0;
+  right:0;
+  bottom:34px;
+  text-align:center;
+  padding:0 12px;
 }
-
-.hero-content {
-  position: absolute;
-  z-index: 2;
-  bottom: 32px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  padding: 0 12px;
+.name{
+  font-size:46px;
+  font-weight:900;
+  line-height:1;
+  letter-spacing:-1.4px;
+  text-shadow:0 5px 18px rgba(0,0,0,.75);
 }
-
-.name {
-  font-size: 44px;
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -1.5px;
-  text-shadow: 0 4px 16px rgba(0,0,0,0.6);
+.verified{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:27px;
+  height:27px;
+  margin-left:5px;
+  border-radius:50%;
+  background:#1da1f2;
+  color:#fff;
+  font-size:17px;
+  vertical-align:middle;
 }
-
-.verified {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
-  margin-left: 5px;
-  border-radius: 50%;
-  background: #1da1f2;
-  color: #fff;
-  font-size: 17px;
-  vertical-align: middle;
+.online{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:14px;
+  background:#fff;
+  color:#111;
+  padding:7px 19px;
+  border-radius:999px;
+  font-size:18px;
+  font-weight:800;
 }
-
-.online {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 13px;
-  padding: 7px 18px;
-  border-radius: 999px;
-  background: #fff;
-  color: #111;
-  font-size: 18px;
-  font-weight: 800;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+.dot{
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#20d466;
 }
-
-.dot {
-  width: 16px;
-  height: 16px;
-  background: #20d466;
-  border-radius: 50%;
+.content{
+  padding:0 16px 38px;
+  margin-top:-2px;
 }
-
-.content {
-  padding: 0 15px 34px;
-  margin-top: -4px;
+.unlock-card{
+  position:relative;
+  height:230px;
+  border-radius:34px;
+  overflow:hidden;
+  border:2px solid rgba(255,255,255,.45);
+  background:#111;
+  cursor:pointer;
+  user-select:none;
 }
-
-.card {
-  position: relative;
-  display: block;
-  height: 205px;
-  border-radius: 32px;
-  overflow: hidden;
-  margin-bottom: 18px;
-  border: 2px solid rgba(255,255,255,0.45);
-  background: #111;
-  text-decoration: none;
-  color: #fff;
+.unlock-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:blur(10px) brightness(.45);
+  transform:scale(1.1);
+  transition:.35s ease;
 }
-
-.card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: brightness(0.58);
+.unlock-card.active img{
+  filter:brightness(.55);
+  transform:scale(1);
 }
-
-.card.blur img {
-  filter: blur(10px) brightness(0.48);
-  transform: scale(1.1);
+.card-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.05),rgba(0,0,0,.55));
 }
-
-.card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.05),
-    rgba(0,0,0,0.45)
-  );
+.card-text{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
-
-.card-text {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
+.lock-box{
+  background:rgba(0,0,0,.82);
+  padding:15px 24px;
+  border-radius:15px;
+  font-size:22px;
+  font-weight:900;
+  box-shadow:0 8px 25px rgba(0,0,0,.45);
 }
-
-.card-text h2 {
-  font-size: 34px;
-  font-weight: 900;
-  line-height: 1.1;
-  margin-bottom: 7px;
-  text-shadow: 0 3px 12px rgba(0,0,0,0.7);
+.hint{
+  margin-top:14px;
+  font-size:18px;
+  opacity:.9;
 }
-
-.card-text p {
-  font-size: 22px;
-  font-weight: 500;
-  opacity: 0.95;
-  text-shadow: 0 3px 12px rgba(0,0,0,0.7);
+.cta{
+  margin-top:18px;
+  height:74px;
+  border-radius:999px;
+  background:#35f45a;
+  color:#061006;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px 0 28px;
+  font-size:22px;
+  font-weight:900;
+  box-shadow:0 10px 28px rgba(53,244,90,.18);
 }
-
-.sensitive {
-  background: rgba(0,0,0,0.82);
-  padding: 14px 22px;
-  border-radius: 14px;
-  font-size: 21px;
-  font-weight: 800;
-  box-shadow: 0 6px 22px rgba(0,0,0,0.45);
+.arrow{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  background:rgba(0,0,0,.28);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
 }
-
-.button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 72px;
-  padding: 0 16px 0 28px;
-  margin-top: 16px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-size: 22px;
-  font-weight: 900;
+.footer{
+  text-align:center;
+  color:#777;
+  font-size:12px;
+  padding:28px 0 0;
 }
-
-.button.green {
-  background: #35f45a;
-  color: #071107;
-}
-
-.button.dark {
-  background: linear-gradient(180deg, #181818, #0b0b0b);
-  color: #35f45a;
-  border: 1px solid rgba(255,255,255,0.12);
-}
-
-.arrow {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.28);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-}
-
-.footer {
-  text-align: center;
-  color: #777;
-  font-size: 12px;
-  padding: 28px 18px 10px;
-}
-
-@media (max-width: 390px) {
-  .hero {
-    height: 560px;
-  }
-
-  .name {
-    font-size: 38px;
-  }
-
-  .verified {
-    width: 23px;
-    height: 23px;
-    font-size: 15px;
-  }
-
-  .card {
-    height: 190px;
-  }
-
-  .card-text h2 {
-    font-size: 30px;
-  }
+@media(max-width:390px){
+  .hero{height:570px}
+  .name{font-size:39px}
+  .unlock-card{height:210px}
 }
 </style>
 </head>
@@ -248,54 +176,58 @@ body {
 <main class="page">
 
   <section class="hero">
-    <div class="hero-content">
+    <div class="profile">
       <div class="name">
         Serena Delgado <span class="verified">✓</span>
       </div>
-
       <div class="online">
-        <span class="dot"></span>
-        Online
+        <span class="dot"></span> Online
       </div>
     </div>
   </section>
 
   <section class="content">
 
-    <a class="card" href="https://fanvue.com/serenadelgadooo">
-      <img src="hero.png" alt="Serena Delgado">
+    <div class="unlock-card" id="unlockCard">
+      <img src="hero.png.jpeg" alt="Serena Delgado">
       <div class="card-overlay"></div>
+
       <div class="card-text">
-        <h2>All you need</h2>
-        <p>You know ;)</p>
+        <div class="lock-box" id="lockText">🔒 Sensitive Content</div>
+        <div class="hint" id="hintText">Tap to preview</div>
       </div>
-    </a>
-
-    <a class="card blur" href="https://fanvue.com/serenadelgadooo">
-      <img src="hero.png" alt="Sensitive Content">
-      <div class="card-overlay"></div>
-      <div class="card-text">
-        <div class="sensitive">🔒 Sensitive Content</div>
-      </div>
-    </a>
-
-    <a class="button green" href="https://fanvue.com/serenadelgadooo">
-      <span>Kostenlos folgen</span>
-      <span class="arrow">→</span>
-    </a>
-
-    <a class="button dark" href="https://fanvue.com/serenadelgadooo">
-      <span>VIP Access 🔥</span>
-      <span class="arrow">→</span>
-    </a>
-
-    <div class="footer">
-      © Serena Delgado
     </div>
+
+    <div class="cta" id="ctaButton">
+      <span id="ctaText">Preview freischalten</span>
+      <span class="arrow">→</span>
+    </div>
+
+    <div class="footer">© Serena Delgado</div>
 
   </section>
 
 </main>
+
+<script>
+const fanvueLink = "https://fanvue.com/serenadelgadooo";
+let unlocked = false;
+
+function handleClick() {
+  if (!unlocked) {
+    unlocked = true;
+    document.getElementById("unlockCard").classList.add("active");
+    document.getElementById("lockText").innerHTML = "All you need";
+    document.getElementById("hintText").innerHTML = "You know ;)";
+    document.getElementById("ctaText").innerHTML = "Jetzt beitreten";
+  } else {
+    window.location.href = fanvueLink;
+  }
+}
+
+document.getElementById("unlockCard").addEventListener("click", handleClick);
+document.getElementById("ctaButton").addEventListener("click", handleClick);
+</script>
 
 </body>
 </html>
