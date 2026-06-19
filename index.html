@@ -10,8 +10,8 @@
 
 html,body{
   background:#000;
-  color:#fff;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  color:#fff;
 }
 
 body{
@@ -39,15 +39,12 @@ body{
 
 .card{
   position:relative;
-  display:block;
   width:100%;
   height:230px;
   overflow:hidden;
   border-radius:34px;
   border:2px solid rgba(255,255,255,.28);
   cursor:pointer;
-  text-decoration:none;
-  color:#fff;
   animation:pulse 1.8s infinite;
 }
 
@@ -98,41 +95,55 @@ body{
   position:fixed;
   inset:0;
   z-index:9999;
-  background:rgba(0,0,0,.92);
+  background:#fff;
+  color:#111;
   display:none;
   align-items:center;
   justify-content:center;
-  padding:24px;
+  padding:28px;
   text-align:center;
 }
 
 .browser-box{
-  max-width:380px;
-  background:#111;
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:24px;
-  padding:28px 22px;
+  max-width:390px;
+}
+
+.browser-box .icon{
+  font-size:54px;
+  margin-bottom:18px;
 }
 
 .browser-box h2{
-  font-size:26px;
-  margin-bottom:12px;
+  font-size:30px;
+  line-height:1.15;
+  margin-bottom:16px;
 }
 
 .browser-box p{
-  font-size:17px;
+  font-size:19px;
   line-height:1.45;
-  color:#ddd;
+  color:#333;
+  margin-bottom:18px;
 }
 
-.browser-box button{
+.steps{
+  text-align:left;
+  background:#f4f4f4;
+  border-radius:18px;
+  padding:18px;
+  font-size:17px;
+  line-height:1.55;
+  margin-top:18px;
+}
+
+.copy-btn{
   margin-top:22px;
   width:100%;
-  height:52px;
+  height:54px;
   border:none;
   border-radius:999px;
-  background:#35f45a;
-  color:#000;
+  background:#ff2b5f;
+  color:#fff;
   font-size:18px;
   font-weight:900;
 }
@@ -161,7 +172,7 @@ body{
 
   <div class="content">
 
-    <a class="card" id="unlockCard" href="https://fanvue.com/serenadelgadooo">
+    <div class="card" id="unlockCard">
       <img src="button.png" alt="Preview">
 
       <div class="overlay">
@@ -170,7 +181,7 @@ body{
           <p id="subtitle">You know ;)</p>
         </div>
       </div>
-    </a>
+    </div>
 
     <div class="footer">© Serena Delgado</div>
 
@@ -179,17 +190,26 @@ body{
 
 <div class="browser-warning" id="browserWarning">
   <div class="browser-box">
-    <h2>Im Browser öffnen</h2>
+    <div class="icon">↗️</div>
+    <h2>Bitte in Safari öffnen</h2>
     <p>
-      TikTok oder Instagram blockieren externe Seiten manchmal.
-      Tippe oben rechts auf die drei Punkte und wähle
-      <b>„Im Browser öffnen“</b>, um fortzufahren.
+      TikTok blockiert externe Seiten manchmal.  
+      Öffne diese Seite im normalen Browser, damit alles funktioniert.
     </p>
-    <button onclick="closeWarning()">Okay</button>
+
+    <div class="steps">
+      1. Oben rechts auf <b>•••</b> tippen<br>
+      2. <b>„Im Browser öffnen“</b> wählen<br>
+      3. Falls das nicht geht: Link kopieren und in Safari öffnen
+    </div>
+
+    <button class="copy-btn" onclick="copyLink()">Link kopieren</button>
   </div>
 </div>
 
 <script>
+const FANVUE_URL = "https://fanvue.com/serenadelgadooo";
+const PAGE_URL = "https://serenadelgadooo.com";
 let revealed = false;
 
 function isInAppBrowser(){
@@ -197,19 +217,23 @@ function isInAppBrowser(){
   return ua.includes("tiktok") ||
          ua.includes("instagram") ||
          ua.includes("fbav") ||
-         ua.includes("fban");
+         ua.includes("fban") ||
+         ua.includes("musical_ly") ||
+         ua.includes("bytedance");
 }
 
-document.getElementById("unlockCard").addEventListener("click", function(e){
+function showBrowserWarning(){
+  document.getElementById("browserWarning").style.display = "flex";
+}
+
+document.getElementById("unlockCard").addEventListener("click", function(){
 
   if(isInAppBrowser()){
-    e.preventDefault();
-    document.getElementById("browserWarning").style.display = "flex";
+    showBrowserWarning();
     return;
   }
 
   if(!revealed){
-    e.preventDefault();
     revealed = true;
     this.classList.add("revealed");
     document.getElementById("title").innerText = "Tap again";
@@ -217,10 +241,12 @@ document.getElementById("unlockCard").addEventListener("click", function(e){
     return;
   }
 
+  window.location.href = FANVUE_URL;
 });
 
-function closeWarning(){
-  document.getElementById("browserWarning").style.display = "none";
+function copyLink(){
+  navigator.clipboard.writeText(PAGE_URL);
+  alert("Link kopiert. Jetzt in Safari einfügen.");
 }
 </script>
 
